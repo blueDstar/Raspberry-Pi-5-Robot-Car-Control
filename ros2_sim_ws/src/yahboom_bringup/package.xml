@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>yahboom_bringup</name>
+  <version>1.0.0</version>
+  <description>
+    Launch files tổng và config cho toàn bộ hệ thống mô phỏng Yahboom.
+    
+    sim_complete.launch.py: Khởi động toàn bộ hệ thống một lệnh:
+      - Gazebo + world
+      - robot_state_publisher (URDF → TF)
+      - mock_micro_ros_client (giả lập ESP32)
+      - mock_micro_ros_agent (giả lập Agent bridge)
+      - yahboom_driver (odom, TF)
+      - RViz2
+  </description>
+  <maintainer email="student@example.com">Student</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>yahboom_description</depend>
+  <depend>yahboom_gazebo</depend>
+  <depend>mock_micro_ros</depend>
+  <depend>yahboom_driver</depend>
+  <depend>yahboom_nav</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>gazebo_ros</depend>
+  <depend>rviz2</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

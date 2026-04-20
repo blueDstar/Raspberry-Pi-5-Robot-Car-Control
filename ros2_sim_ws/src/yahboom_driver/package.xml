@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>yahboom_driver</name>
+  <version>1.0.0</version>
+  <description>
+    Driver ROS 2 cho Yahboom robot - thay thế Rosmaster_Lib trong môi trường mô phỏng.
+    
+    Trong hệ thật:
+      - Driver Python dùng Rosmaster_Lib để giao tiếp với board control
+      - Subscribe /cmd_vel → gọi set_car_motion(vx, vy, angular)
+      - Publish /vel_raw, /joint_states, /imu/data_raw, /voltage
+    
+    Trong mô phỏng này:
+      - Driver subscribe từ mock_agent (thay vì Rosmaster_Lib)
+      - Tính odometry và publish /odom + TF
+      - Broadcast transform tree
+  </description>
+  <maintainer email="student@example.com">Student</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

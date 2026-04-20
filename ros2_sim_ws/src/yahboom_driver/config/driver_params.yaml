@@ -1,0 +1,18 @@
+# Tham số cấu hình cho yahboom_driver
+# File này tương đương với các settings trong Rosmaster_Lib thật
+
+yahboom_driver:
+  ros__parameters:
+    # Thông số bánh xe (khớp với mock_client)
+    wheel_radius: 0.033      # m - bán kính bánh
+    wheel_track:  0.190      # m - khoảng cách giữa 2 bánh (trục ngang)
+    
+    # TF frames
+    odom_frame: "odom"
+    base_frame: "base_footprint"
+    
+    # Có broadcast TF không
+    publish_tf: true
+    
+    # Sử dụng /clock từ Gazebo (sim time)
+    use_sim_time: false

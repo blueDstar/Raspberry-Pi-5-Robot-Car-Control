@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mock_micro_ros</name>
+  <version>1.0.0</version>
+  <description>
+    Giả lập micro-ROS layer gồm 2 thành phần:
+    1. mock_micro_ros_client: đóng vai firmware ESP32/MCU, tính kinematics 4 bánh,
+       xuất encoder/IMU/battery giả lập.
+    2. mock_micro_ros_agent: đóng vai micro-ROS Agent, là cầu nối (bridge)
+       giữa ROS 2 graph và mock_client, tương tự binary micro-ros-agent thật.
+
+    Đây là package GIÁO DỤC để hiểu rõ luồng dữ liệu trong hệ thật:
+    /cmd_vel → Agent → Client → encoder/IMU → Agent → ROS 2
+  </description>
+  <maintainer email="student@example.com">Student</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

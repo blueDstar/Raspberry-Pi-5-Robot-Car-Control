@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>yahboom_nav</name>
+  <version>1.0.0</version>
+  <description>
+    Navigation demo nodes cho Yahboom robot simulation:
+    
+    1. square_drive: Điều khiển xe chạy hình vuông bằng /cmd_vel (dựa vào thời gian).
+       Dùng để test cơ bản xem robot di chuyển đúng không.
+    
+    2. turn_90_by_odom: Quay robot đúng 90 độ bằng feedback từ /odom (yaw angle).
+       Đây là ví dụ về closed-loop control dùng odometry.
+       So sánh với time-based: odometry-based chính xác hơn khi mô phỏng có noise.
+  </description>
+  <maintainer email="student@example.com">Student</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,45 @@
+# Tham số tổng cho toàn bộ hệ thống mô phỏng
+
+simulation:
+  # Có dùng Gazebo physics hay chỉ test nodes thuần túy
+  use_gazebo: true
+  use_sim_time: true
+
+robot:
+  # Thông số kích thước xe (khớp với URDF)
+  wheel_radius: 0.033     # m
+  wheel_base: 0.150       # m (khoảng cách trục dọc)
+  wheel_track: 0.190      # m (khoảng cách trục ngang)
+  
+  # Hệ số A và B trong kinematics Yahboom
+  # Vm_left  = Vx - Vz * (A + B)
+  # Vm_right = Vx + Vz * (A + B)
+  kinematic_A: 0.075      # = wheel_base/2
+  kinematic_B: 0.095      # = wheel_track/2
+
+mock_client:
+  # Tần số publish sensor data (Hz)
+  publish_rate: 50.0
+  # Noise IMU
+  imu_noise_std: 0.01
+  # Điện áp pin giả lập
+  battery_voltage: 12.0
+  battery_noise_std: 0.05
+  # Encoder resolution (ticks/vòng)
+  ticks_per_rev: 1320
+
+mock_agent:
+  bridge_verbose: true
+  log_every_n: 50
+
+navigation:
+  # square_drive
+  linear_speed: 0.15    # m/s
+  angular_speed: 0.5    # rad/s
+  side_length: 0.5      # m
+  
+  # turn_90_by_odom
+  turn_kp: 1.5
+  turn_tolerance_deg: 1.5
+  turn_speed_max: 0.4
+  turn_speed_min: 0.08
